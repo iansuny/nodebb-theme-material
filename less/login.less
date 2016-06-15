@@ -1,0 +1,114 @@
+.login, .register {
+	overflow: hidden;
+	height: 100%;
+
+	.login-block, .register-block {
+		background: #fff;
+		box-shadow: 0 1px 11px rgba(0, 0, 0, .27);
+		-webkit-box-shadow: 0 1px 11px rgba(0, 0, 0, .27);
+		-moz-box-shadow: 0 1px 11px rgba(0, 0, 0, .27);
+		border-radius: 2px;
+		padding: 25px 55px;
+		width: 500px;
+		display: inline-block;
+		vertical-align: middle;
+		position: relative;
+		-webkit-animation-name: slideInDown;
+		animation-name: slideInDown;
+		-webkit-animation-duration: 300ms;
+		animation-duration: 300ms;
+		-webkit-animation-fill-mode: both;
+		animation-fill-mode: both;
+		z-index: 1;
+
+		@media (max-width: @screen-xs-max) {
+			padding: 20px;
+			width: ~"calc(100% - 60px)";
+		}
+
+		.checkbox {
+			margin: 5px 5px 15px;
+			text-align: left;
+		}
+	}
+
+	.login-block {
+		margin-top: 110px;
+	}
+
+	.register-block {
+		margin-top: 90px;
+	}
+
+	ul.alternate-auth {
+		margin-bottom: 0px;
+		padding-left: 0px;
+
+		li {
+			display: inline;
+			margin-right: 5px;
+			margin-left: 5px;
+		}
+	}
+
+	.input-group {
+		margin-bottom: 20px;
+	}
+}
+
+div.login, div.register {
+	text-align: center;
+
+	&:after {
+		content: "";
+		vertical-align: middle;
+		display: inline-block;
+		width: 1px;
+		height: 100%;
+	}
+
+	&:before {
+		height: 50%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: #4285f4;
+		content: "";
+		z-index: 0;
+	}
+
+	.login-options, .register-options {
+		margin-top: 10px;
+	}
+}
+
+.fa-facebook-square {
+	color: #3b5998;
+	background: transparent;
+}
+
+.fa-twitter-square {
+	color: #2fc2ef;
+	background: transparent;
+}
+
+.fa-google-plus-square {
+	color: #df5138;
+	background: transparent;
+}
+
+.fa-dropbox {
+	color: #2895F1;
+	background: transparent;
+}
+
+.tos {
+	border: 1px solid #ccc;
+	text-align: left;
+	height: 100px;
+	margin-top: 5px;
+	margin-left: 5px;
+	overflow-y: scroll;
+	padding: 10px;
+}

@@ -1,0 +1,55 @@
+{
+  "name": "nodebb-theme-material",
+  "version": "2.6.18",
+  "nbbpm": {
+    "compatibility": "^1.0.0"
+  },
+  "description": "Material Design theme for NodeBB",
+  "main": "theme.less",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pichalite/nodebb-theme-material.git"
+  },
+  "keywords": [
+    "nodebb",
+    "material",
+    "material design",
+    "theme",
+    "themes"
+  ],
+  "author": {
+    "name": "pichalite",
+    "email": "pichalite.com@gmail.com"
+  },
+  "bugs": {
+    "url": "https://github.com/pichalite/nodebb-theme-material/issues"
+  },
+  "gitHead": "5463f5723bc4e99c64930620f355166cf76fd6c4",
+  "homepage": "https://github.com/pichalite/nodebb-theme-material#readme",
+  "_id": "nodebb-theme-material@2.6.18",
+  "scripts": {},
+  "_shasum": "e0e0dbe80fe5f23f246472409c551df7783c914e",
+  "_from": "nodebb-theme-material@2.6.18",
+  "_npmVersion": "2.14.4",
+  "_nodeVersion": "4.1.1",
+  "_npmUser": {
+    "name": "pichalite",
+    "email": "pichalite.com@gmail.com"
+  },
+  "dist": {
+    "shasum": "e0e0dbe80fe5f23f246472409c551df7783c914e",
+    "tarball": "https://registry.npmjs.org/nodebb-theme-material/-/nodebb-theme-material-2.6.18.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "pichalite",
+      "email": "pichalite.com@gmail.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "packages-16-east.internal.npmjs.com",
+    "tmp": "tmp/nodebb-theme-material-2.6.18.tgz_1464320604805_0.2339381107594818"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/nodebb-theme-material/-/nodebb-theme-material-2.6.18.tgz"
+}

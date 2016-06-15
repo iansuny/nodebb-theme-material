@@ -1,0 +1,199 @@
+.groups {
+	.input-group {
+		#search-button {
+			padding-left: 0px;
+			position: relative;
+		    left: -20px;
+		    z-index: 2;
+		    vertical-align: middle;
+		}
+	}
+
+	.fg-line {
+		padding-right: 0px;
+	}
+
+	&.list {
+		.members {
+			padding-left: 0;
+			margin-bottom: 0px;
+
+			img {
+				width: 32px;
+				height: 32px;
+				border-radius: 50%;
+			}
+
+			li {
+				display: inline;
+			}
+		}
+
+		.group-cover {
+			min-height: 150px;
+		}
+
+		.list-cover {
+			display: block;
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.card-footer {
+			text-align: center;
+		}
+	}
+
+	&.details {
+		.members img, .pending img, .invited img {
+			width: 32px;
+			height: 32px;
+			line-height: 32px;
+			border-radius: 50%;
+		}
+	}
+}
+
+.group-details {
+	h2 {
+		margin-top: 0px;
+		font-size: 25px;
+	}
+
+	button, a {
+		margin-top: -30px;
+	}
+}
+
+[component="groups/activity"] {
+	&.card-body.card-padding {
+		padding-top: 0px;
+	}
+}
+
+.group-members, .members-invited {
+	.fg-line {
+		margin-bottom: 10px;
+	}
+}
+
+
+@media (max-width: @screen-xs-max) {
+	.row.groups .col-lg-8 {
+		margin-top: 10px;
+	}
+
+	.row.groups .col-xs-5 {
+		padding-right: 0px;
+  		padding-left: 0px;
+	}
+
+	.row.groups .col-xs-7 {
+  		padding-left: 0px;
+	}	
+}
+
+[component="groups/container"] {
+	
+	.card.user-profile-view {
+		margin-right: 15px;
+		margin-left: 15px;
+	}
+	
+	[component="groups/cover"] {
+		background-size: cover;
+		background-repeat: no-repeat;
+		min-height: 200px;
+		position: relative;
+		margin-bottom: 1em;
+
+		.change {
+			visibility: hidden;
+		}
+
+		&.initialised:hover {
+			.change {
+				.opacity(1);
+				visibility: visible;
+			}
+		}
+
+		&.active {
+			&:hover {
+				cursor: move;
+			}
+
+			.instructions {
+				.opacity(1);
+			}
+
+			.change {
+				display: none;
+			}
+
+			.save {
+				display: inline-block;
+			}
+		}
+
+		&.saving {
+			.save {
+				display: none;
+			}
+
+			.indicator {
+				display: inline-block;
+			}
+		}
+
+		.change, .save, .indicator {
+			display: inline-block;
+			position: absolute;
+			top: 1em;
+			right: 1em;
+			background: rgba(0, 0, 0, 0.2);
+			color: #eee;
+			padding: 0.5em;
+			border-radius: 5px;
+			font-weight: bold;
+
+			&:hover {
+				cursor: pointer;
+			}
+		}
+
+		.change {
+			.opacity(0);
+			.transition(opacity .15s linear);
+		}
+
+		.save {
+			display: none;
+		}
+
+		.indicator {
+			display: none;
+		}
+
+		.instructions {
+			display: inline-block;
+			position: absolute;
+			right: 1em;
+			bottom: 1em;
+			background: rgba(0, 0, 0, 0.2);
+			color: #eee;
+			padding: 0.5em;
+			border-radius: 5px;
+			margin-top: 2em;
+			.opacity(0);
+			.transition(opacity .15s linear);
+		}
+	}
+	
+	.card-body.card-padding {
+		@media (min-width: @screen-md-min) {
+			padding: 18px;
+		}
+	}
+}
