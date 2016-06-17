@@ -1,91 +1,108 @@
-<style type="text/css">
-    #header {
-        box-shadow: none;
-    }
-</style>
+<!-- IMPORT partials/breadcrumbs.tpl -->
 
-<div class="register">
-    <div class="register-block">
-        <div class="alert alert-danger<!-- IF !error --> hidden<!-- ENDIF !error -->" id="register-error-notify">
-            [[error:registration-error]]
-            <p>{error}</p>
-        </div>
-        <form class="form-horizontal" role="form" action="{config.relative_path}/register" method="post">
-        <div class="input-group fg-float">
-            <span class="input-group-addon"><i class="fa fa-fw fa-envelope"></i></span>
-            <div class="fg-line">
-                <input class="form-control" type="email" name="email" id="email" autocorrect="off" autocapitalize="off" />
+<div class="row register">
+    <div class="{register_window:spansize}">
+        <div class="well well-lg">
+            <div class="alert alert-danger<!-- IF !error --> hidden<!-- ENDIF !error -->" id="register-error-notify">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>[[error:registration-error]]</strong>
+                <p>{error}</p>
             </div>
-            <label class="fg-label">[[register:email_address_placeholder]]</label>
-            <span class="input-group-addon">
-                <span id="email-notify"><i class="fa fa-circle-o"></i></span>
-            </span>
-        </div>
+            <form component="register/local" class="form-horizontal" role="form" action="{config.relative_path}/register" method="post">
+                <div class="form-group">
+                    <label for="email" class="col-lg-4 control-label">[[register:email_address]]</label>
+                    <div class="col-lg-8">
+                        <div class="input-group">
+                            <input class="form-control" type="email" placeholder="[[register:email_address_placeholder]]" name="email" id="email" autocorrect="off" autocapitalize="off" />
+                            <span class="input-group-addon">
+                                <span id="email-notify"><i class="fa fa-circle-o"></i></span>
+                            </span>
+                        </div>
+                        <span class="help-block">[[register:help.email]]</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="username" class="col-lg-4 control-label">[[register:username]]</label>
+                    <div class="col-lg-8">
+                        <div class="input-group">
+                            <input class="form-control" type="text" placeholder="[[register:username_placeholder]]" name="username" id="username" autocorrect="off" autocapitalize="off" autocomplete="off" />
+                            <span class="input-group-addon">
+                                <span id="username-notify"><i class="fa fa-circle-o"></i></span>
+                            </span>
+                        </div>
+                        <span class="help-block">[[register:help.username_restrictions, {minimumUsernameLength}, {maximumUsernameLength}]]</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-lg-4 control-label">[[register:password]]</label>
+                    <div class="col-lg-8">
+                        <div class="input-group">
+                            <input class="form-control" type="password" placeholder="[[register:password_placeholder]]" name="password" id="password" />
+                            <span class="input-group-addon">
+                                <span id="password-notify"><i class="fa fa-circle-o"></i></span>
+                            </span>
+                        </div>
+                        <span class="help-block">[[register:help.minimum_password_length, {minimumPasswordLength}]]</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password-confirm" class="col-lg-4 control-label">[[register:confirm_password]]</label>
+                    <div class="col-lg-8">
+                        <div class="input-group">
+                            <input class="form-control" type="password" placeholder="[[register:confirm_password_placeholder]]" name="password-confirm" id="password-confirm" />
+                            <span class="input-group-addon">
+                                <span id="password-confirm-notify"><i class="fa fa-circle-o"></i></span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="input-group fg-float">
-            <span class="input-group-addon"><i class="fa fa-fw fa-user"></i></span>
-            <div class="fg-line">
-                <input class="form-control" type="text" name="username" id="username" autocorrect="off" autocapitalize="off" autocomplete="off" />
-            </div>
-            <label class="fg-label">[[register:username_placeholder]]</label>
-            <span class="input-group-addon">
-                <span id="username-notify"><i class="fa fa-circle-o"></i></span>
-            </span>
-        </div>
-        
-        <div class="input-group fg-float">
-            <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
-            <div class="fg-line">
-                <input class="form-control" type="password" name="password" id="password" />
-            </div>
-            <label class="fg-label">[[register:password_placeholder]]</label>
-            <span class="input-group-addon">
-                <span id="password-notify"><i class="fa fa-circle-o"></i></span>
-            </span>
-        </div>
-        
-        <div class="input-group fg-float">
-            <span class="input-group-addon"><i class="fa fa-fw fa-lock"></i></span>
-            <div class="fg-line">
-                <input class="form-control" type="password" name="password-confirm" id="password-confirm" />
-            </div>
-            <label class="fg-label">[[register:confirm_password_placeholder]]</label>
-            <span class="input-group-addon">
-                <span id="password-confirm-notify"><i class="fa fa-circle-o"></i></span>
-            </span>
-        </div>
-        
-        <!-- BEGIN regFormEntry -->
-        <div class="input-group">
-            <div id="register-{regFormEntry.styleName}">
-                {{regFormEntry.html}}
-            </div>
-        </div>
-        <!-- END regFormEntry -->
+                <!-- BEGIN regFormEntry -->
+                <div class="form-group">
+                    <label for="register-{regFormEntry.styleName}" class="col-lg-4 control-label">{regFormEntry.label}</label>
+                    <div id="register-{regFormEntry.styleName}" class="col-lg-8">
+                        {{regFormEntry.html}}
+                    </div>
+                </div>
+                <!-- END regFormEntry -->
 
-        <!-- IF termsOfUse -->
-        <div class="tos">{termsOfUse}</div>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" name="agree-terms" id="agree-terms">
-                <i class="input-helper"></i>
-                [[register:agree_to_terms_of_use]]
-            </label>
+                <!-- IF termsOfUse -->
+                <div class="form-group">
+                    <label class="col-lg-4 control-label">&nbsp;</label>
+                    <div class="col-lg-8">
+                        <hr />
+                        <strong>[[register:terms_of_use]]</strong>
+                        <div class="tos">{termsOfUse}</div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" name="agree-terms" id="agree-terms"> [[register:agree_to_terms_of_use]]
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <!-- ENDIF termsOfUse -->
+                <div class="form-group">
+                    <div class="col-lg-offset-4 col-lg-8">
+                        <hr />
+                        <button class="btn btn-primary btn-lg btn-block" id="register" type="submit">[[register:register_now_button]]</button>
+                    </div>
+                </div>
+                <input id="referrer" type="hidden" name="referrer" value="" />
+                <input id="token" type="hidden" name="token" value="" />
+            </form>
         </div>
-        <!-- ENDIF termsOfUse -->
-        <button class="btn btn-primary btn-lg btn-block" id="register" type="submit">[[register:register_now_button]]</button>
-        <input id="referrer" type="hidden" name="referrer" value="" />
-        <input id="token" type="hidden" name="token" value="" />
-        </form>
     </div>
 
     <!-- IF alternate_logins -->
-    <div class="register-options">
-        <ul class="alternate-auth">
-        <!-- BEGIN authentication -->
-        <li class="{authentication.name}"><a rel="nofollow" target="_top" href="{config.relative_path}{authentication.url}"><i class="fa {authentication.icon} fa-2x"></i></a></li>
-        <!-- END authentication -->
-        </ul>
+    <div class="col-md-6">
+        <div class="well well-lg">
+            <h4>[[register:alternative_registration]]</h4>
+            <ul class="alt-logins">
+                <!-- BEGIN authentication -->
+                <li class="{authentication.name}"><a rel="nofollow" target="_top" href="{config.relative_path}{authentication.url}"><i class="fa {authentication.icon} fa-5x"></i></a><h5>{authentication.name}</h5></li>
+                <!-- END authentication -->
+            </ul>
+        </div>
     </div>
     <!-- ENDIF alternate_logins -->
 </div>
